@@ -1,0 +1,14 @@
+<div class="container">
+            <div ng-controller="allPokemons">
+                <h1>Pokédex</h1>
+                <!-- Search -->
+                <for role="search">
+                    <div>
+                        <input  placeholder="Search for a Pokemon" type="text" ng-model="name" class="idSearch" />
+                        <select ng-change="sel(selected)" ng-model="selected">
+                            <option value="{{pokemon.url}}" ng-repeat="pokemon in pokemons | filter:{name: name} | orderBy:pokemon">{{pokemon.name}}</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+	</div>
