@@ -46,3 +46,9 @@ pokeApp.factory('selectedPokemon', function($resource, $log, $rootScope){
 
     return {find: find, getPokemon: getPokemon}
 });
+
+pokeApp.directive('pokedex', function() {
+    return {
+        templateUrl: 'pokedex.html'
+    };
+});
