@@ -12,3 +12,45 @@
                 </form>
             </div>
 	</div>
+	<br/>
+    <div  ng-controller="pokemonSelected">
+        <div class="container">
+            <div class="row" ng-if="pokemon.id != undefined">
+			<div class="col-md-6">
+				<div class="panel panel-default">
+							<div class="panel-heading">
+								<h4>{{pokemon.name}}</h4>
+							</div>
+							<div class="panel-body">
+								<img src="{{pokemon.sprites.front_default}}"/>
+								<table class="table table-bordered">
+									<tr><th>N° :</th><td>{{pokemon.id}}</td></tr>
+									<tr><th>Type(s) :</th><td><span ng-repeat="type in pokemon.types">{{type.type.name}} </span></td></tr>
+									<tr><th>Height :</th><td>{{pokemon.height/10}}m</td></tr>
+									<tr><th>Weight :</th><td>{{pokemon.weight}}kg</td></tr>
+								</table>
+							</div>
+						</div>
+					<div class="panel panel-primary">
+						<div class="panel-heading" >
+							Description
+						</div>
+						<div class="panel-body">
+							{{pokemon.details}}
+						</div>
+					</div>
+				</div>
+                
+					<div class="panel panel-default col-md-4">
+                    <h3>Moves</h3>
+                    <table class="table ">
+						<thead class="thead-dark">
+							<tr><th>Name</th></tr>
+						</thead>
+                        <tr ng-repeat="move in pokemon.moves"><td>{{move.move.name}}</td></tr>
+                    </table>
+					</div>
+                
+            </div>
+        </div>
+    </div>
