@@ -15,3 +15,11 @@ pokeApp.controller('allPokemons', function($scope, $resource, POKEAPI, selectedP
     };
 });
 
+pokeApp.controller('pokemonSelected', function($scope, selectedPokemon) {
+    $scope.$watch(function(){
+            return selectedPokemon.getPokemon()
+        }
+        ,function (newPok){
+            $scope.pokemon = newPok;
+        });
+});
