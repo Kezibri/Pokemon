@@ -23,3 +23,26 @@ pokeApp.controller('pokemonSelected', function($scope, selectedPokemon) {
             $scope.pokemon = newPok;
         });
 });
+
+pokeApp.factory('selectedPokemon', function($resource, $log, $rootScope){
+    var pokemon = {};
+    var details = {};
+    function find(url){
+        var donnees = $resource(url);
+        donnees.get().$promise.then(function(result){
+            pokemon = result;
+            var Apidetails = $resource(result.species.url);
+            Apidetails.get().$promise.then(function(result){
+                var details = result.flavor_text_entries.find(function(m){
+                        return m.language.name === "en";
+                });
+                pokemon.details = details.flavor_text;
+            });
+        });
+    }
+    function getPokemon(){
+        return pokemon;
+    }
+
+    return {find: find, getPokemon: getPokemon}
+});
