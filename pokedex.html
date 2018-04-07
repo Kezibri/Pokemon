@@ -40,17 +40,23 @@
 						</div>
 					</div>
 				</div>
-                
-					<div class="panel panel-default col-md-4">
-                    <h3>Moves</h3>
-                    <table class="table ">
-						<thead class="thead-dark">
-							<tr><th>Name</th></tr>
-						</thead>
-                        <tr ng-repeat="move in pokemon.moves"><td>{{move.move.name}}</td></tr>
-                    </table>
+                <div class="col-md-4">
+					<div class="panel panel-success">
+						<div class="panel-heading">
+							<h3>Moves</h3>
+						</div>
+						<div class="panel-body">
+							<table class="table col-md-4">
+								<thead>
+									<tr><th>Name</th></tr>
+								</thead>
+								<tbody>
+									<tr ng-repeat="move in pokemon.moves"><td>{{move.move.name}}</td></tr>
+								</tbody>
+							</table>
+						</div>						
 					</div>
-                
+				</div>
             </div>
         </div>
     </div>
