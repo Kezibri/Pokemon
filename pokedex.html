@@ -1,36 +1,37 @@
-<div class="container">
-            <div ng-controller="allPokemons">
-                <h1>Pokédex</h1>
-                <!-- Search -->
-                <for role="search">
-                    <div>
-                        <input  placeholder="Search for a Pokemon" type="text" ng-model="name" class="idSearch" />
-                        <select ng-change="sel(selected)" ng-model="selected">
-                            <option value="{{pokemon.url}}" ng-repeat="pokemon in pokemons | filter:{name: name} | orderBy:pokemon">{{pokemon.name}}</option>
-                        </select>
-                    </div>
-                </form>
-            </div>
+<div class="container text-center"">
+	<div ng-controller="allPokemons">
+		<div class="panel panel-info">
+			<div class="panel-heading">
+				<h1>Pokédex ... Home of all Pokémons. </h1>
+				<form role="search">
+						<input  placeholder="Search for a Pokemon" type="text" ng-model="name" class="idSearch" />
+						<select ng-change="sel(selected)" ng-model="selected">
+							<option value="{{pokemon.url}}" ng-repeat="pokemon in pokemons | filter:{name: name} | orderBy:pokemon">{{pokemon.name}}</option>
+						</select>
+				</form>
+			</div>
+		</div>
 	</div>
-	<br/>
-    <div  ng-controller="pokemonSelected">
-        <div class="container">
-            <div class="row" ng-if="pokemon.id != undefined">
-			<div class="col-md-6">
+</div>
+<br>
+<div  ng-controller="pokemonSelected">
+	<div class="container">
+		<div class="row" ng-if="pokemon.id != undefined">
+			<div class="col-md-7">
 				<div class="panel panel-default">
-							<div class="panel-heading">
-								<h4>{{pokemon.name}}</h4>
-							</div>
-							<div class="panel-body">
-								<img src="{{pokemon.sprites.front_default}}"/>
-								<table class="table table-bordered">
-									<tr><th>N° :</th><td>{{pokemon.id}}</td></tr>
-									<tr><th>Type(s) :</th><td><span ng-repeat="type in pokemon.types">{{type.type.name}} </span></td></tr>
-									<tr><th>Height :</th><td>{{pokemon.height/10}}m</td></tr>
-									<tr><th>Weight :</th><td>{{pokemon.weight}}kg</td></tr>
-								</table>
-							</div>
-						</div>
+					<div class="panel-heading">
+						<h4>{{pokemon.name}}</h4>
+					</div>
+					<div class="panel-body">
+						<img src="{{pokemon.sprites.front_default}}"/>
+						<table class="table table-bordered">
+							<tr><th>N° :</th><td>{{pokemon.id}}</td></tr>
+							<tr><th>Type(s) :</th><td><span ng-repeat="type in pokemon.types">{{type.type.name}} </span></td></tr>
+							<tr><th>Height :</th><td>{{pokemon.height/10}}m</td></tr>
+							<tr><th>Weight :</th><td>{{pokemon.weight}}kg</td></tr>
+						</table>
+					</div>
+				</div>
 					<div class="panel panel-primary">
 						<div class="panel-heading" >
 							Description
@@ -39,24 +40,24 @@
 							{{pokemon.details}}
 						</div>
 					</div>
-				</div>
-                <div class="col-md-4">
-					<div class="panel panel-success">
-						<div class="panel-heading">
-							<h3>Moves</h3>
-						</div>
-						<div class="panel-body">
-							<table class="table col-md-4">
-								<thead>
-									<tr><th>Name</th></tr>
-								</thead>
-								<tbody>
-									<tr ng-repeat="move in pokemon.moves"><td>{{move.move.name}}</td></tr>
-								</tbody>
-							</table>
-						</div>						
+			</div>
+			<div class="col-md-5">
+				<div class="panel panel-danger">
+					<div class="panel-heading">
+						<h3>Moves</h3>
 					</div>
+					<div class="panel-body">
+						<table class="table table-striped">
+							<thead>
+								<tr><th>Name</th></tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="move in pokemon.moves"><td>{{move.move.name}}</td></tr>
+							</tbody>
+						</table>
+					</div>						
 				</div>
-            </div>
-        </div>
-    </div>
+			</div>
+		</div>
+	</div>
+</div>
